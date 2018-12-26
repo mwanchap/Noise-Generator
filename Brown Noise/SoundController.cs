@@ -9,6 +9,7 @@ namespace BrownNoise
         public WaveOut waveOut;
         public NoiseProvider32 noiseProvider;
         public NoiseType SelectedNoiseType { get; set; }
+        public int Frequency { get; set; }
 
         public SoundController()
         {
@@ -23,11 +24,11 @@ namespace BrownNoise
             switch (SelectedNoiseType)
             {
                 case NoiseType.BrownNoise:
-                    var brownNoise = new NoiseProvider32(3000);
+                    var brownNoise = new NoiseProvider32(Frequency);
                     noiseProvider = brownNoise;
                     break;
                 case NoiseType.SineWave:
-                    var sineWave = new SineWaveProvider(150);
+                    var sineWave = new SineWaveProvider(Frequency);
                     noiseProvider = sineWave;
                     break;
                 default:
@@ -57,6 +58,13 @@ namespace BrownNoise
         {
             Stop();
             SelectedNoiseType = noiseType;
+            Start();
+        }
+
+        public void ChangeFrequency(int value)
+        {
+            Stop();
+            Frequency = value;
             Start();
         }
     }

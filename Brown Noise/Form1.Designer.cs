@@ -42,8 +42,12 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.NoiseTypesList = new System.Windows.Forms.ComboBox();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblFrequency = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.barVol)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnStart
@@ -154,11 +158,46 @@
             this.NoiseTypesList.TabIndex = 7;
             this.NoiseTypesList.SelectedIndexChanged += new System.EventHandler(this.NoiseTypesList_SelectedIndexChanged);
             // 
+            // trackBar1
+            // 
+            this.trackBar1.LargeChange = 5000;
+            this.trackBar1.Location = new System.Drawing.Point(15, 239);
+            this.trackBar1.Maximum = 20000;
+            this.trackBar1.Minimum = 100;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(257, 45);
+            this.trackBar1.SmallChange = 100;
+            this.trackBar1.TabIndex = 8;
+            this.trackBar1.TickFrequency = 1000;
+            this.trackBar1.Value = 200;
+            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 209);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(57, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Frequency";
+            // 
+            // lblFrequency
+            // 
+            this.lblFrequency.AutoSize = true;
+            this.lblFrequency.Location = new System.Drawing.Point(237, 209);
+            this.lblFrequency.Name = "lblFrequency";
+            this.lblFrequency.Size = new System.Drawing.Size(25, 13);
+            this.lblFrequency.TabIndex = 10;
+            this.lblFrequency.Text = "200";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 296);
+            this.Controls.Add(this.lblFrequency);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.NoiseTypesList);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblVol);
@@ -173,6 +212,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.barVol)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,5 +232,8 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox NoiseTypesList;
+        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblFrequency;
     }
 }

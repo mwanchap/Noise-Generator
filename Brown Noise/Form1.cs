@@ -66,5 +66,12 @@ namespace BrownNoise
             var noiseType = (NoiseType) Enum.GetValues(typeof(NoiseType)).GetValue(selectedItem);
             Sound.SwitchSoundType(noiseType);
         }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            var value = (sender as TrackBar).Value;
+            lblFrequency.Text = value + "Hz";
+            Sound.ChangeFrequency(value);
+        }
     }
 }
