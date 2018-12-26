@@ -11,6 +11,8 @@ namespace BrownNoise
 {
     public partial class Form1 : Form
     {
+        public SoundController Sound { get; set; } = new SoundController();
+
         public Form1()
         {
             InitializeComponent();
@@ -18,17 +20,17 @@ namespace BrownNoise
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            SoundController.Start();
+            Sound.Start();
         }
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-            SoundController.Stop();
+            Sound.Stop();
         }
 
         private void barVol_Scroll(object sender, EventArgs e)
         {
-            SoundController.Volume = barVol.Value / 100f;
+            Sound.Volume = barVol.Value / 100f;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -40,12 +42,12 @@ namespace BrownNoise
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            SoundController.Start();
+            Sound.Start();
         }
 
         private void stopToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SoundController.Stop();
+            Sound.Stop();
         }
 
         private void configToolStripMenuItem_Click(object sender, EventArgs e)
@@ -58,18 +60,11 @@ namespace BrownNoise
             Application.Exit();
         }
 
-        private void NoiseTypesList_ItemCheck(object sender, ItemCheckEventArgs e)
-        {
-        }
-
         private void NoiseTypesList_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void NoiseTypesList_SelectedValueChanged(object sender, EventArgs e)
-        {
-
+            var selectedItem = (sender as ComboBox).SelectedIndex;
+            var noiseType = (NoiseType) Enum.GetValues(typeof(NoiseType)).GetValue(selectedItem);
+            Sound.SwitchSoundType(noiseType);
         }
     }
 }

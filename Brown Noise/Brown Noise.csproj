@@ -71,6 +71,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="NoiseProvider32.cs" />
+    <Compile Include="NoiseType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -78,6 +79,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SineWaveProvider.cs" />
     <Compile Include="SoundController.cs" />
     <Compile Include="WaveProvider32.cs" />
   </ItemGroup>

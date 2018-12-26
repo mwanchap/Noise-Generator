@@ -22,7 +22,9 @@ namespace BrownNoise
             Form1 form = new Form1();
             form.Closing += new CancelEventHandler(OnFormClosing);
             form.Show();
+#if !DEBUG
             form.Hide();
+#endif
         }
 
         private void OnFormClosing(object sender, CancelEventArgs e)

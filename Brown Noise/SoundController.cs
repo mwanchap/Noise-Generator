@@ -1,44 +1,63 @@
-﻿using NAudio.Wave;
+﻿using System;
+using NAudio.Wave;
+using NAudio.Wave.SampleProviders;
 
 namespace BrownNoise
 {
-    public static class SoundController
+    public class SoundController
     {
-        public static WaveOut waveOut;
-        public static NoiseProvider32 noiseProvider;
+        public WaveOut waveOut;
+        public NoiseProvider32 noiseProvider;
+        public NoiseType SelectedNoiseType { get; set; }
 
-        static SoundController()
+        public SoundController()
         {
             waveOut = new WaveOut();
             noiseProvider = new NoiseProvider32(3000);
         }
 
-        public static void Start()
+        public void Start()
         {
+            WaveProvider32 noiseProvider;
+
+            switch (SelectedNoiseType)
+            {
+                case NoiseType.BrownNoise:
+                    var brownNoise = new NoiseProvider32(3000);
+                    noiseProvider = brownNoise;
+                    break;
+                case NoiseType.SineWave:
+                    var sineWave = new SineWaveProvider(150);
+                    noiseProvider = sineWave;
+                    break;
+                default:
+                    throw new InvalidOperationException("Invalid noise type");
+            }
+
             if (waveOut.PlaybackState != PlaybackState.Playing)
             {
                 waveOut = new WaveOut();
-                noiseProvider = new NoiseProvider32(3000);
-                noiseProvider.SetWaveFormat(16000, 1); // 16kHz mono
                 waveOut.Init(noiseProvider);
                 waveOut.Play();
             }
         }
 
-        public static void Stop()
+        public void Stop()
         {
-            /*for (int i = (int)(waveOut.Volume * 100); i > 0; i--)
-            {
-                waveOut.Volume = i / 100f;
-            }*/
-
             waveOut.Stop();
         }
 
-        public static float Volume
+        public float Volume
         {
             get { return waveOut.Volume; }
             set { waveOut.Volume = value; }
+        }
+
+        public void SwitchSoundType(NoiseType noiseType)
+        {
+            Stop();
+            SelectedNoiseType = noiseType;
+            Start();
         }
     }
 }

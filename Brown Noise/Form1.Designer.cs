@@ -41,7 +41,7 @@
             this.configToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
-            this.NoiseTypesList = new System.Windows.Forms.CheckedListBox();
+            this.NoiseTypesList = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.barVol)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -147,20 +147,18 @@
             this.NoiseTypesList.FormattingEnabled = true;
             this.NoiseTypesList.Items.AddRange(new object[] {
             "Brown noise",
-            "Sine wave"});
-            this.NoiseTypesList.Location = new System.Drawing.Point(12, 166);
+            "Sine wave / pure tone"});
+            this.NoiseTypesList.Location = new System.Drawing.Point(15, 166);
             this.NoiseTypesList.Name = "NoiseTypesList";
-            this.NoiseTypesList.Size = new System.Drawing.Size(120, 79);
-            this.NoiseTypesList.TabIndex = 6;
-            this.NoiseTypesList.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.NoiseTypesList_ItemCheck);
+            this.NoiseTypesList.Size = new System.Drawing.Size(257, 21);
+            this.NoiseTypesList.TabIndex = 7;
             this.NoiseTypesList.SelectedIndexChanged += new System.EventHandler(this.NoiseTypesList_SelectedIndexChanged);
-            this.NoiseTypesList.SelectedValueChanged += new System.EventHandler(this.NoiseTypesList_SelectedValueChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(284, 296);
             this.Controls.Add(this.NoiseTypesList);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblVol);
@@ -193,6 +191,6 @@
         private System.Windows.Forms.ToolStripMenuItem configToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckedListBox NoiseTypesList;
+        private System.Windows.Forms.ComboBox NoiseTypesList;
     }
 }

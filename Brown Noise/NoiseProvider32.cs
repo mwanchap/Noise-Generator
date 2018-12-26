@@ -20,7 +20,6 @@ namespace BrownNoise
 
         public override int Read(float[] buffer, int offset, int sampleCount)
         {
-            int sampleRate = WaveFormat.SampleRate;
             for (int n = 0; n < sampleCount; n++)
             {
                 float sample = (float) ((rand.NextDouble() - Amplitude) % Amplitude);
