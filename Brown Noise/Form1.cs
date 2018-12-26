@@ -57,5 +57,19 @@ namespace BrownNoise
         {
             Application.Exit();
         }
+
+        private void NoiseTypesList_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+        }
+
+        private void NoiseTypesList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NoiseTypesList_SelectedValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

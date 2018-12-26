@@ -6,8 +6,8 @@ namespace BrownNoise
 {
     public class NoiseProvider32 : WaveProvider32
     {
-        Random rand;
-        BiQuadFilter filter;
+        readonly Random rand;
+        readonly BiQuadFilter filter;
 
         public NoiseProvider32(float filterFreq)
         {
